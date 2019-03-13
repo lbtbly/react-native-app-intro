@@ -7,7 +7,7 @@ react-native-app-intro is a react native component implementing a parallax effec
 
 ### Support ios、android
 <img src="http://i.giphy.com/3o6ozjLoOnYTXfzJgQ.gif">
-<img src="http://gifyu.com/images/android.gif" width="345">
+<img src="http://gifyu.com/images/android.gif">
 
 <a href="http://www.freepik.com">Designed by Freepik</a>
 
@@ -22,7 +22,8 @@ $ npm i react-native-app-intro --save
 You can use pageArray quick generation your app intro with parallax effect. With the basic usage, the Android status bar will be updated to match your slide background color.
 
 <img src="http://i.giphy.com/l3V0khy22aUviTTaM.gif">
-<img src="./assets/sample-android.gif" width="280">
+
+<img src="./assets/sample-android.gif" style="width: 272px;">
 
 ```javascript
 import React, { Component } from 'react';
@@ -178,7 +179,6 @@ And in Android, image inside view component, view need width、height.
 | defaultIndex | number   | 0 | number of the index of the initial index |
 | showSkipButton | bool | true | a boolean defining if we should render the skip button |
 | showDoneButton | bool | true | a boolean that defines if we should render the done button |
-| showDots | bool | true | a boolean that defines if we should render the bottom dots |
 
 ##### **Children View Properties**
 | Prop  | PropType | Default Value | Description           |

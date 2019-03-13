@@ -1,5 +1,6 @@
 import assign from 'assign-deep';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   StatusBar,
   StyleSheet,
@@ -51,9 +52,10 @@ const defaulStyles = {
     fontSize: 20,
   },
   controllText: {
+    fontFamily: 'Open Sans',
     color: '#fff',
-    fontSize: 22,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: '600',
   },
   dotStyle: {
     backgroundColor: 'rgba(255,255,255,.3)',
@@ -70,6 +72,7 @@ const defaulStyles = {
   },
   paginationContainer: {
     position: 'absolute',
+    width: Dimensions.get('window').width,
     bottom: 25,
     left: 0,
     right: 0,
@@ -83,22 +86,22 @@ const defaulStyles = {
     flex: 0.6,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   btnContainer: {
-    flex: 0.2,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
+    height: 50
   },
   nextButtonText: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    fontFamily: 'Arial',
+    fontSize: Platform.OS === 'ios' ? 25 : 18,
+    fontWeight: '600',
+    fontFamily: 'Open Sans',
   },
   full: {
     height: 80,
-    width: 100,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -208,7 +211,7 @@ export default class AppIntro extends Component {
           {...this.props}
           {...this.state}
           isSkipBtnShow={isSkipBtnShow}
-          styles={this.styles}
+          styles={[this.styles]}
           onSkipBtnClick={() => this.props.onSkipBtnClick(index)} /> :
           <View style={this.styles.btnContainer} />
         }
@@ -277,7 +280,7 @@ export default class AppIntro extends Component {
       );
     } else {
       animatedChild = (
-        <View key={index} style={children.props.style}>
+        <View key={index}>
           {nodes}
         </View>
       );
@@ -347,7 +350,6 @@ export default class AppIntro extends Component {
             if (this.isToTintStatusBar()) {
               StatusBar.setBackgroundColor(this.shadeStatusBarColor(this.props.pageArray[state.index].backgroundColor, -0.3), false);
             }
-
             this.props.onSlideChange(state.index, state.total);
           }}
           onScroll={Animated.event(
